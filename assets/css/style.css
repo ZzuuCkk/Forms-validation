@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: linear-gradient(#020024, #9198e5,#00d4ff);
+}
+form{
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    width: 100%;
+    margin: 50px auto;
+    box-shadow: 3px 10px 30px 3px white;
+    border-radius: 15px;
+    
+}
+
+h1{
+    text-align: center;
+    margin: 10px 0;
+    color: white;
+}
+
+
+
+.form-row{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+;
+}
+
+/* */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+.message {
+	color: red;
+	font-size: 16px;
+	min-height: 20px;
+}
+
+input{
+    border: 1px solid rgb(55, 237, 237);
+    height: 40px;
+    padding: 5px 10px;
+    outline: none;
+}
+
+input::placeholder{
+    font-style: italic;
+}
+label{
+    color: white;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.form-row:has(input[required]) label::after{
+    content: " *";
+    color: red;
+}
+
+img{
+    width: 20px;
+    position: absolute;
+    top: 45%;
+    right: 20px;
+
+}
+
+
+/* js style */
+
+.green{
+    border: 2px solid green;
+}
+
+.red{
+    border: 2px solid red;
+
+}
+.yellow{
+    border: 2px solid yellow;
+
+}
+
+button{
+    width: 120px;
+    margin: 10px auto;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    font-size: 14px;
+    text-transform: capitalize;
+    color: wheat;
+    background: linear-gradient(to bottom right,#020024, #097f97,#818aec);
+}
