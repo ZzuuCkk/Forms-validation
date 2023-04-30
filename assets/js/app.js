@@ -75,7 +75,7 @@ function checkPassword(){
 		return false;
 	} else if (passValue.length >= 8)
          { 
-            if(!/[A-Za-z0-9\d@$!%*?&]/.test(passValue)){
+            if(!/[A-Za-z0-9\!@#$%^&*]/.test(passValue)){
 
             
 		passInput.parentElement.querySelector(".message").innerText =
@@ -84,7 +84,7 @@ function checkPassword(){
             passInput.classList.remove("yellow");
             passInput.classList.add("red");
             return false;
-            }else if(!/[A-Z]/.test(passValue) || !/[\@$!%*?&]/.test(passValue) || !/[0-9]/.test(passValue)){
+            }else if(!/[A-Z]/.test(passValue) || !/[\!@#$%^&*]/.test(passValue) || !/[0-9]/.test(passValue)){
                 passInput.parentElement.querySelector(".message").innerText =
                 "normal password , password must contain at least one capital letter,one number and one special character ";
                 passInput.classList.remove("green");
@@ -140,15 +140,14 @@ function showModal(selector) {
 			}
 		});
 	}
-}
 
-openModal.addEventListener("click", (e) => {
-	showModal("#error-modal");
-	// console.log("open modal");
-});
+};
 
 form.addEventListener("submit", (event)=> {
     if (!checkEmail() || !checkPhone() || !checkPassword() || !repeatPAssword()) {
       event.preventDefault();
-    } 
-  });
+    } else{
+        showModal("#success-modal");
+    }
+  
+});
