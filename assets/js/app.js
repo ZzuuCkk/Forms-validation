@@ -4,6 +4,10 @@ emailInput = document.querySelector("#email"),
 passInput = document.querySelector("#password"),
 repeatPassInput = document.querySelector("#repeat"),
 phoneINput = document.querySelector("#number");
+const modal = document.querySelector("#success-modal");
+const openModal = document.querySelector(".submit-form");
+const closeModal = document.querySelector(".close-btn");
+
 function checkEmail(){
     if(emailInput.validaty.valueMissing){
         emailInput.parentElement.querySelector(".message").innerText =
@@ -120,11 +124,31 @@ function repeatPAssword (){
 }
 
 
+function showModal(selector) {
+	const modal = document.querySelector(selector);
+	if (modal) {
+		const closeBtn = modal.querySelector(".close-btn");
+
+		modal.classList.add("active");
+		closeBtn.addEventListener("click", (e) => {
+			modal.classList.remove("active");
+		});
+		modal.addEventListener("click", (e) => {
+			// console.log(e.target);
+			if (e.target.classList.contains("modal")) {
+				modal.classList.remove("active");
+			}
+		});
+	}
+}
+
+openModal.addEventListener("click", (e) => {
+	showModal("#error-modal");
+	// console.log("open modal");
+});
 
 form.addEventListener("submit", (event)=> {
     if (!checkEmail() || !checkPhone() || !checkPassword() || !repeatPAssword()) {
       event.preventDefault();
-    } else {
-      console.log("Form submitted successfully");
-    }
+    } 
   });
